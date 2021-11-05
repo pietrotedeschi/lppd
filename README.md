@@ -15,9 +15,6 @@ In order to test the security properties, download the file udca.pv and run: ./p
   <img src="./figures/proverif.png" alt="UDCA" width="800">
 </p>
 
-## Credits
-Credits go to OpenSSL 1.0.0 and MAVLink library for ARM whose original efforts made this possible.
-
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
