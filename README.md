@@ -1,5 +1,7 @@
 # UDCA: Privacy-Preserving Co-Location Detection for Unmanned Aerial Vehicles
 
+Our solution, namely ``UDCA``, allows two directly-connected UAV, in mutual radio visibility, to know if they are in proximity, i.e., at risk of immediate physical collision, without revealing their actual location.
+
 <p align="center">
   <img src="/figures/scenario_udca.png" alt="UDCA" width="900">
 </p>
