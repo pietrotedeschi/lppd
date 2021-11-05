@@ -12,7 +12,7 @@ The security properties of ``UDCA`` have been verified formally and experimental
 In order to test the security properties, download the file udca.pv and run: ./proverif udca.pv | grep "RESULT". Further, in order to verify that the location is a strong secret (i.e. the attacker cannot launch offline guessing attacks on the location value), please follow the guidelines inside the code.
 
 <p align="center">
-  <img src="./figures/proverif.png" alt="UDCA" width="700">
+  <img src="./figures/proverif.png" alt="UDCA" width="800">
 </p>
 
 ## Credits
