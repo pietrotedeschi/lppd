@@ -1,5 +1,11 @@
 # UDCA: Privacy-Preserving Co-Location Detection for Unmanned Aerial Vehicles
 
+<p align="center">
+  <img src="/figures/scenario_udca.png" alt="UDCA" width="900">
+</p>
+
+The details are provided in the paper.
+
 ## Formal verification with ProVerif
 The security properties of ``UDCA`` have been verified formally and experimentally by using the open-source tool ProVerif 2.02pl1, demonstrating enhanced security protection with respect to state-of-the-art approaches.
 
