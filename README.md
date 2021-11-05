@@ -11,6 +11,13 @@ The security properties of ``UDCA`` have been verified formally and experimental
 
 In order to test the security properties, download the file udca.pv and run: ./proverif udca.pv | grep "RESULT". Further, in order to verify that the location is a strong secret (i.e. the attacker cannot launch offline guessing attacks on the location value), please follow the guidelines inside the code.
 
+<p align="center">
+  <img src="./figures/proverif.png" alt="UDCA" width="700">
+</p>
+
+## Credits
+Credits go to OpenSSL 1.0.0 and MAVLink library for ARM whose original efforts made this possible.
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
