@@ -3,9 +3,6 @@
 (*--Dolev-Yao model Open Channels--*)
 free c:channel. (*Public Channel between UAVs*)
 
-free IDA:bitstring.
-free IDB:bitstring.
-
 free posA: bitstring [private].
 weaksecret posA.
 free posB: bitstring [private].
@@ -23,8 +20,8 @@ type G [large,bounded].
 (*--Shared Symmetric Key--*)
 free sym: sk [private].
 
-(*--Hosts--*)
-free uav: host.
+(*--UAVs--*)
+free uA,uB: host.
 
 (* Auxiliary Functions *)
 fun mul(G,G):G.
@@ -46,8 +43,10 @@ fun senc (bitstring, sk):bitstring.
 reduc forall m:bitstring, k:sk; sdec(senc(m,k),k) = m.
 
 (*Events*)
-event acceptUAV(sk).
-event termUAV(sk).
+event acceptUAVa(sk,host).
+event acceptUAVb(sk,host).
+event termUAVa(sk,host).
+event termUAVb(sk,host).
 
 (*--Check timestamp freshness operation--*)
 fun freshness(ts, bool): bool
@@ -55,50 +54,37 @@ reduc forall T: ts; freshness(T, true) = true
 otherwise forall T: ts; freshness(T, false) = false.
 
 (* Authentication *)
-query x:sk; event(termUAV(x)) ==> event(acceptUAV(x)).
+(*UAV A authenticates UAV B*)
+query x:sk, y:host; inj-event(termUAVa(x,y))==>inj-event(acceptUAVb(x,y)).
+
+(*UAV B authenticates UAV A*)
+query x:sk, y:host; inj-event(termUAVb(x,y))==>inj-event(acceptUAVa(x,y)).
+
 
 (* Test if posA is secret *)
 query attacker(posA).
 query attacker(posB).
 
-(* UAV Server *)
-let uavA () = 
-  new o:G;  (*value: 1*)
-  new ex:G; (*exponent value: 3*)
-  new p:G;
-  new q:G;
-  new tA:ts;
-
-  let n   = mul(p,q) in
-  let fi  = mul(sub(p,o),sub(q,o)) in
-  let e   = ex in
-  let d   = inverse_mod(e,fi) in
-  out(c, (n,e));
-
-  event acceptUAV(sym);
-
-  (* Preparation *)
-  new latA: lat;
-  new lonA: lon;
-  new altA: alt;
-  let posA  = map(latA, lonA, altA) in
-
-  let ksj = exp(posA,d) in
-  let tj = hash(ksj) in
-
-  in(c, (yc_enc:bitstring, tB:ts, checkT:bool));
-
-  if checkT = true then
-    let yc_dec = bs2g(sdec(yc_enc,sym)) in
-    let yS = exp2(yc_dec,d) in
-  
-    (* out(c, (yS, tj)). *)
-    out(c, (senc(cast2bs(yS),sym), senc(tj,sym), tB, freshness(tA, true))).
-
 (* UAV Client *)
-let uavB () = 
-  in(c, ((nS:G, eS:G)));
+let uavA () = 
+  
+  new oC:G;  (*value: 1*)
+  new exC:G; (*exponent value: 3*)
+  new pC:G;
+  new qC:G;
 
+  let nc    = mul(pC,qC) in
+  let fic   = mul(sub(pC,oC),sub(qC,oC)) in
+  let ec    = exC in
+  let dc    = inverse_mod(ec,fic) in
+
+  in(c, ((nS:G, eS:G),X:host));
+  
+  if X<>uA then (
+
+  event acceptUAVb(sym, X);
+
+  out(c, ((nc, ec),uA));
   (* Preparation *)
   new Rci:G;
   new latB: lat;
@@ -121,7 +107,48 @@ let uavB () =
     let ti = hash(kci) in
 
     if ti = tjS then
-      event termUAV(sym).
+      event termUAVa(sym, X)
+  ).
+
+(* UAV Server *)
+let uavB () = 
+  new o:G;  (*value: 1*)
+  new ex:G; (*exponent value: 3*)
+  new p:G;
+  new q:G;
+  new tA:ts;
+
+  let n   = mul(p,q) in
+  let fi  = mul(sub(p,o),sub(q,o)) in
+  let e   = ex in
+  let d   = inverse_mod(e,fi) in
+  out(c, ((n,e), uB));
+
+  in(c, ((nC:G, eC:G),Y:host));
+  
+  if Y<>uB then (
+
+  event acceptUAVa(sym, Y);
+
+  (* Preparation *)
+  new latA: lat;
+  new lonA: lon;
+  new altA: alt;
+  let posA  = map(latA, lonA, altA) in
+
+  let ksj = exp(posA,d) in
+  let tj = hash(ksj) in
+
+  in(c, (yc_enc:bitstring, tB:ts, checkT:bool));
+
+  if checkT = true then
+    let yc_dec = bs2g(sdec(yc_enc,sym)) in
+    let yS = exp2(yc_dec,d) in
+  
+    (* out(c, (yS, tj)). *)
+    out(c, (senc(cast2bs(yS),sym), senc(tj,sym), tB, freshness(tA, true)));
+    event termUAVb(sym, Y)
+  ).
 
 let udca =
   ! (uavA() | uavB()).
