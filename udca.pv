@@ -158,14 +158,11 @@ process udca
 (*--------------------------------------------------------------
 Verification summary:
 
-Weak secret posA is true.
-
-Weak secret posB is true.
-
-Query event(termUAV(x)) ==> event(acceptUAV(x)) is true.
-
-Query not attacker(posA[]) is true.
-
-Query not attacker(posB[]) is true.
+RESULT Weak secret posA is true.
+RESULT Weak secret posB is true.
+RESULT inj-event(termUAVa(x,y)) ==> inj-event(acceptUAVb(x,y)) is true.
+RESULT inj-event(termUAVb(x,y)) ==> inj-event(acceptUAVa(x,y)) is true.
+RESULT not attacker(posA[]) is true.
+RESULT not attacker(posB[]) is true.
 
 -------------------------------------------------------------*)
