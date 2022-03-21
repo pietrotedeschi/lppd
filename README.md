@@ -1,4 +1,4 @@
-# Mind Your Step! Privacy-Preserving Proximity Detection for Unmanned Aerial Vehicles
+# Mind Your Step! Privacy-Preserving Proximity Detection for Remotely-Piloted Unmanned Aerial Vehicles
 
 Our solution, namely Mind Your Step ``MYS``, allows two directly-connected UAV, in mutual radio visibility, to know if they are in proximity, i.e., at risk of immediate physical collision, without revealing their actual location.
 
