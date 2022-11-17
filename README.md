@@ -1,4 +1,4 @@
-# Real-Time Privacy-Preserving Proximity Discovery for Remotely-Controlled Drones
+# Lightweight Privacy-Preserving Proximity Discovery for Remotely-Controlled Drones
 
 Our solution, namely ``RPPD``, allows two directly-connected UAV/drones, in mutual radio visibility, to know if they are in proximity, i.e., at risk of immediate physical collision, without revealing their actual location.
 
