@@ -23,12 +23,11 @@ Further, in order to verify that the location is a strong secret (i.e. the attac
 MATLAB version: R2022b or higher
 Download: https://it.mathworks.com/downloads/?s_tid=rh_bn_dl
 
-- Accuracy Test
+### Accuracy Test
 In order to verify and extract the risults depicted in Fig. 4 (Proximity Detection Ratio of LPPD, varying the radius of the sphere 𝑟𝛼 used for space tessellation), you need to run the file ```lppd_accuracy_test.m``` in the folder accuracy_test.
 Please, the scripts to generate the data for this simulation, it requires time.
 
-- Performance Test
-
+### Performance Test
 In order to extract the:
 1) Time to execute modular operations on the 3DR-Solo, considering different RSA key lengths
 2) Time to execute LPPD on the 3DR-Solo, with different key sizes
