@@ -20,8 +20,8 @@ Further, in order to verify that the location is a strong secret (i.e. the attac
 
 ## Accuracy and Performance Tests
 
-MATLAB version: R2022b or higher
-Download: https://it.mathworks.com/downloads/?s_tid=rh_bn_dl
+- MATLAB version: R2022b or higher
+- Download: https://it.mathworks.com/downloads/?s_tid=rh_bn_dl
 
 ### Accuracy Test
 In order to verify and extract the risults depicted in Fig. 4 (Proximity Detection Ratio of LPPD, varying the radius of the sphere 𝑟𝛼 used for space tessellation), you need to run the file ```lppd_accuracy_test.m``` in the folder accuracy_test.
