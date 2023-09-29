@@ -42,24 +42,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## Disclaimer
 Any actions and or activities related to the material contained within this github repository is solely your responsibility. The misuse of the information in this repository can result in criminal charges brought against the persons in question. The author(s) will not be held responsible in the event any criminal charges be brought against any individuals misusing the information in this repository to break the law.
 
-## Developers
-- Pietro Tedeschi (pietro dot tedeschi at tii dot ae) --- Technology Innovation Institute, Autonomous Robotics Research Center, Abu Dhabi, United Arab Emirates
-
-- Savio Sciancalepore (s dot sciancalepore at tue dot nl) --- Security Group - Faculty of Mathematics and Computer Science Eindhoven University of Technology (TU/e) Eindhoven, The Netherlands
-
-## How to Cite LPPD
-```
-@INPROCEEDINGS{tedeschi_acsac_2023,
-  author={Tedeschi, Pietro and Sciancalepore, Savio and Pietro, Roberto Di},
-  publisher = {Association for Computing Machinery},
-  address = {New York, NY, USA},
-  booktitle= {Proceedings of the 39th Annual Computer Security Applications Conference}, 
-  title= {{Lightweight Privacy-Preserving Proximity Discovery for Remotely-Controlled Drones}}, 
-  year={2023},
-  month ={December},
-  location = {Austin, TX, USA}
-}
-```
-
 ## License
 ``LPPD`` is released under the GNU General Public License v3.0 license.
