@@ -53,7 +53,7 @@ Any actions and or activities related to the material contained within this gith
 ``LPPD`` is released under the GNU General Public License v3.0 license.
 
 ## How to Cite LPPD
-
+```
 @INPROCEEDINGS{tedeschi_acsac_2023,
   author={Tedeschi, Pietro and Sciancalepore, Savio and Pietro, Roberto Di},
   publisher = {Association for Computing Machinery},
@@ -64,3 +64,4 @@ Any actions and or activities related to the material contained within this gith
   month ={December},
   location = {Austin, TX, USA}
 }
+```
