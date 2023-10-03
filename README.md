@@ -6,7 +6,9 @@ Our solution, namely Lightweight Privacy-Preserving Proximity Discovery for Remo
   <img src="./figures/scenario_mys.png" alt="LPPD" width="900">
 </p>
 
-The details are provided in the paper.
+The details are provided in the paper published in the ACSAC '23 proceedings.
+
+**Awarded Badges**: Artifact Functional, Results Reproduced.
 
 ## Formal verification with ProVerif
 The security properties of ``LPPD`` have been verified formally and experimentally by using the open-source tool ProVerif 2.02pl1, demonstrating enhanced security protection with respect to state-of-the-art approaches.
@@ -36,6 +38,11 @@ In order to extract the:
 
 Please run the file ```lppd.m``` inside the folder performance_test.
 
+## Developers
+- Pietro Tedeschi (pietro dot tedeschi at tii dot ae) --- Technology Innovation Institute, Autonomous Robotics Research Center, Abu Dhabi, United Arab Emirates
+
+- Savio Sciancalepore (s dot sciancalepore at tue dot nl) --- Security Group - Department of Mathematics and Computer Science Eindhoven University of Technology (TU/e) Eindhoven, The Netherlands
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
@@ -44,3 +51,16 @@ Any actions and or activities related to the material contained within this gith
 
 ## License
 ``LPPD`` is released under the GNU General Public License v3.0 license.
+
+## How to Cite LPPD
+
+@INPROCEEDINGS{tedeschi_acsac_2023,
+  author={Tedeschi, Pietro and Sciancalepore, Savio and Pietro, Roberto Di},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  booktitle= {Proceedings of the 39th Annual Computer Security Applications Conference}, 
+  title= {{Lightweight Privacy-Preserving Proximity Discovery for Remotely-Controlled Drones}}, 
+  year={2023},
+  month ={December},
+  location = {Austin, TX, USA}
+}
